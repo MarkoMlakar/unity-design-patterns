@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,11 +7,13 @@ namespace Movement
     [RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
     public class PlayerMovement : MonoBehaviour
     {
+        private static readonly int s_MoveX = Animator.StringToHash("MoveX");
+        private static readonly int s_MoveZ = Animator.StringToHash("MoveZ");
+        
         [Header("Controllers")]
         [SerializeField] private CharacterController characterController;
         [Header("Input controls")]
         [SerializeField] private PlayerInput playerInput;
-
         [Header("Movement Variables")] 
         [SerializeField] private float movementSpeed = 2f;
         [SerializeField] private float rotationSpeed = 5f;
@@ -21,19 +24,31 @@ namespace Movement
         [SerializeField] private float groundDistance = 0.4f;
         [SerializeField] private LayerMask groundMask;
 
+        [Header("Animations")] 
+        [SerializeField] private Animator playerAnimator;
+        [SerializeField] private float animationSmoothTime = 0.1f;
+
         private bool isGroundedPlayer;
         private Vector3 playerVelocity;
         private Vector3 moveDirection;
         private InputAction moveAction;
         private InputAction jumpAction;
         private Transform cameraTransform;
+        private Vector2 currentAnimationBlendVector;
+        private Vector2 animationVelocity;
 
+        private void Awake()
+        {
+            playerAnimator.SetFloat(s_MoveX,1);
+            playerAnimator.SetFloat(s_MoveZ,1);
+        }
 
         private void Start()
         {
             moveAction = playerInput.actions["Move"];
             jumpAction = playerInput.actions["Jump"];
             cameraTransform = Camera.main.transform;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         void Update()
@@ -46,11 +61,20 @@ namespace Movement
 
             // Move the player in relation of the camera direction
             Vector2 input = moveAction.ReadValue<Vector2>();
-            moveDirection = new Vector3(input.x, 0, input.y);
+            
+            // Blend with animations
+            currentAnimationBlendVector = Vector2.SmoothDamp(currentAnimationBlendVector, input, 
+                ref animationVelocity, animationSmoothTime);
+            
+            moveDirection = new Vector3(currentAnimationBlendVector.x, 0, currentAnimationBlendVector.y);
             moveDirection = moveDirection.x * cameraTransform.right.normalized +
                             moveDirection.z * cameraTransform.forward.normalized;
             moveDirection.y = 0f;
             characterController.Move(moveDirection * Time.deltaTime * movementSpeed);
+            
+            // Animation
+            playerAnimator.SetFloat(s_MoveX, currentAnimationBlendVector.x);
+            playerAnimator.SetFloat(s_MoveZ, currentAnimationBlendVector.y);
             
             // Rotate the player in relation of the camera direction
             float targetAngle = cameraTransform.eulerAngles.y;
