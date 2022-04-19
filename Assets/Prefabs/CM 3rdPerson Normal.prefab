@@ -254,13 +254,13 @@ MonoBehaviour:
   m_VerticalAxis:
     Value: 7.72
     m_SpeedMode: 1
-    m_MaxSpeed: 0.5
+    m_MaxSpeed: 0.08
     m_AccelTime: 0.2
     m_DecelTime: 0.2
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
     m_InvertInput: 1
-    m_MinValue: -20
+    m_MinValue: -5
     m_MaxValue: 20
     m_Wrap: 0
     m_Recentering:
@@ -276,9 +276,9 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_HorizontalAxis:
-    Value: 0
+    Value: 50.3
     m_SpeedMode: 1
-    m_MaxSpeed: 0.5
+    m_MaxSpeed: 0.08
     m_AccelTime: 0.2
     m_DecelTime: 0.2
     m_InputAxisName: Mouse X
@@ -322,7 +322,7 @@ MonoBehaviour:
   m_TargetMovementOnly: 1
   m_ScreenX: 0.32
   m_ScreenY: 0.5
-  m_CameraDistance: 1.12
+  m_CameraDistance: 1.2
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
