@@ -1,12 +1,13 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace Utils
+namespace UI
 {
     public class SpeechBubbleUI : MonoBehaviour
     {
+        public static event Action OnSpeechBubbleEnd;
         [SerializeField] private GameObject speechBubble;
         [SerializeField] private Transform transformToFollow;
         [SerializeField] private TMP_Text contentText;
@@ -49,6 +50,9 @@ namespace Utils
             // Hide bubble at the end
             yield return new WaitForSeconds(delayBeforeClosing);
             ToggleSpeechCanvas(false);
+            
+            // Fire event that speech bubble is closed
+            OnSpeechBubbleEnd?.Invoke();
         }
         private void Start()
         {
@@ -56,7 +60,7 @@ namespace Utils
             speechBubble.SetActive(false);
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             speechBubble.transform.position = camera.WorldToScreenPoint(transformToFollow.position);
         }

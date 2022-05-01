@@ -1,4 +1,4 @@
-using System;
+using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -36,11 +36,10 @@ namespace Movement
         private Transform cameraTransform;
         private Vector2 currentAnimationBlendVector;
         private Vector2 animationVelocity;
-
         private void Awake()
         {
-            playerAnimator.SetFloat(s_MoveX,1);
-            playerAnimator.SetFloat(s_MoveZ,1);
+            playerAnimator.SetFloat(s_MoveX,0);
+            playerAnimator.SetFloat(s_MoveZ,0);
         }
 
         private void Start()
@@ -49,9 +48,16 @@ namespace Movement
             jumpAction = playerInput.actions["Jump"];
             cameraTransform = Camera.main.transform;
             Cursor.lockState = CursorLockMode.Locked;
+            playerInput.DeactivateInput();
+            SpeechBubbleUI.OnSpeechBubbleEnd += EnableInput;
         }
 
-        void Update()
+        private void OnDestroy()
+        {
+            SpeechBubbleUI.OnSpeechBubbleEnd -= EnableInput;
+        }
+
+        private void Update()
         {
             isGroundedPlayer = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
             if (isGroundedPlayer && playerVelocity.y < 0)
@@ -89,6 +95,11 @@ namespace Movement
             
             playerVelocity.y += gravityValue * Time.deltaTime;
             characterController.Move(playerVelocity * Time.deltaTime);
+        }
+
+        private void EnableInput()
+        {
+            playerInput.ActivateInput();
         }
     }
 }

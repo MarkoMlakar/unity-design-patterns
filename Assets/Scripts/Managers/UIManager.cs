@@ -1,5 +1,5 @@
+using UI;
 using UnityEngine;
-using Utils;
 
 namespace Managers
 {
@@ -7,10 +7,11 @@ namespace Managers
     { 
         public static UIManager Instance { get; private set; }
         [SerializeField] private SpeechBubbleUI speechBubbleUI;
+        [SerializeField] private TextAsset bubbleText;
 
-        public void ShowSpeechBubbleUI(string textContent)
+        public void ShowSpeechBubbleUI()
         {
-            speechBubbleUI.SetData(textContent).ToggleSpeechCanvas(true);
+            speechBubbleUI.SetData(bubbleText.text).ToggleSpeechCanvas(true);
         }
 
         private void Awake()

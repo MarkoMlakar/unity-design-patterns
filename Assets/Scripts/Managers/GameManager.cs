@@ -8,8 +8,7 @@ namespace Managers
         private IEnumerator Start()
         {
             yield return new WaitForSeconds(2);
-            
-            UIManager.Instance.ShowSpeechBubbleUI("Hello friend! My name is Marko|Welcome to my sandbox!|Happy exploring \n :=)");
+            UIManager.Instance.ShowSpeechBubbleUI();
         }
     }
 }
