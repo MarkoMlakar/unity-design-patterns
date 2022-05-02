@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Managers
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : Singleton<GameManager>
     {
         private IEnumerator Start()
         {

@@ -1,3 +1,4 @@
+using System;
 using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,12 +13,15 @@ namespace Movement
         
         [Header("Controllers")]
         [SerializeField] private CharacterController characterController;
+        
         [Header("Input controls")]
         [SerializeField] private PlayerInput playerInput;
+        
         [Header("Movement Variables")] 
         [SerializeField] private float movementSpeed = 2f;
         [SerializeField] private float rotationSpeed = 5f;
         [SerializeField] private float jumpHeight = 2.5f;
+        
         [Header("Ground Check")]
         [SerializeField] private float gravityValue = -9.81f;
         [SerializeField] private Transform groundCheck;
@@ -49,12 +53,21 @@ namespace Movement
             cameraTransform = Camera.main.transform;
             Cursor.lockState = CursorLockMode.Locked;
             playerInput.DeactivateInput();
+        }
+
+        private void OnEnable()
+        {
             SpeechBubbleUI.OnSpeechBubbleEnd += EnableInput;
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             SpeechBubbleUI.OnSpeechBubbleEnd -= EnableInput;
+        }
+        
+        private void EnableInput()
+        {
+            playerInput.ActivateInput();
         }
 
         private void Update()
@@ -95,11 +108,6 @@ namespace Movement
             
             playerVelocity.y += gravityValue * Time.deltaTime;
             characterController.Move(playerVelocity * Time.deltaTime);
-        }
-
-        private void EnableInput()
-        {
-            playerInput.ActivateInput();
         }
     }
 }

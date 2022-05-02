@@ -1,22 +1,10 @@
-using System;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : Singleton<AudioManager>
 {
-    public static AudioManager Instance { get; private set; }
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip diamondClip;
-    private void Awake()
-    {
-        if (Instance != null && Instance == this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
-    }
+    
     private void OnEnable()
     {
         Collectible.OnSoundEffect += PlayCollisionSound;

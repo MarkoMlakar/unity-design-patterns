@@ -1,11 +1,10 @@
+using System;
 using Cinemachine;
 using UnityEngine;
 using UI;
 
-public class CameraManager : MonoBehaviour
+public class CameraManager : Singleton<CameraManager>
 {
-    public static CameraManager Instance { get; private set; }
-
     [SerializeField] private CinemachineVirtualCamera introVCam;
     [SerializeField] private CinemachineVirtualCamera normalVCam;
     [SerializeField] private CinemachineVirtualCamera aimVCam;
@@ -20,25 +19,22 @@ public class CameraManager : MonoBehaviour
         aimVCam.enabled = false;
         aimVCam.Priority -= 10;
     }
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
-    }
-
     private void Start()
     {
         EnableIntroCam();
+    }
+
+    private void OnEnable()
+    {
         SpeechBubbleUI.OnSpeechBubbleEnd += EnableNormalCam;
     }
-    
+
+    private void OnDisable()
+    {
+        SpeechBubbleUI.OnSpeechBubbleEnd -= EnableNormalCam;
+
+    }
+
     private void EnableIntroCam()
     {
         introVCam.enabled = true;
