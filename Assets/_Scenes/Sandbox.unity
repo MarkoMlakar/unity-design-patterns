@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45246905, g: 0.31537828, b: 0.5857353, a: 1}
+  m_IndirectSpecularColor: {r: 0.28386894, g: 0.12771353, b: 0.27935502, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -238,7 +238,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speechBubbleUI: {fileID: 1911139926}
-  bubbleText: {fileID: 4900000, guid: d1a8d703734c4eb5b4c9e81b952e38bd, type: 3}
 --- !u!4 &41628822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4870204933709518, guid: d2cd02263a1e8084abf81f1324b929be, type: 3}
@@ -2089,7 +2088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3af96e7817f6d448abd934a6254a92d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introVCam: {fileID: 5867939099004133710}
+  speechVCam: {fileID: 5867939099004133710}
   normalVCam: {fileID: 1534532900}
   aimVCam: {fileID: 344416092}
 --- !u!1001 &565736202
@@ -2522,7 +2521,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: hello friend todaz i am goind to show zou
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c0e1c1c8c15d9a449b8a713019039581, type: 2}
   m_sharedMaterial: {fileID: 4751320161090919039, guid: c0e1c1c8c15d9a449b8a713019039581, type: 2}
@@ -2552,9 +2551,9 @@ MonoBehaviour:
   m_fontSize: 30.77
   m_fontSizeBase: 30.77
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 11.96
-  m_fontSizeMax: 72
+  m_fontSizeMax: 31
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
@@ -3422,6 +3421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d31e16001380c544bad0f407a070e41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialSpeechText: {fileID: 4900000, guid: d1a8d703734c4eb5b4c9e81b952e38bd, type: 3}
 --- !u!1001 &950691842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4344,6 +4344,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Diamond (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6929566238879267730, guid: cf675e5fc709745bb8e488bc0a7b9091, type: 3}
+      propertyPath: instructions
+      value: 
+      objectReference: {fileID: 4900000, guid: 913f981c758a9fc49b066eaa1b25223d, type: 3}
+    - target: {fileID: 6929566238879267730, guid: cf675e5fc709745bb8e488bc0a7b9091, type: 3}
+      propertyPath: disappearTime
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf675e5fc709745bb8e488bc0a7b9091, type: 3}
 --- !u!1001 &1140280632
@@ -5224,6 +5232,14 @@ PrefabInstance:
     - target: {fileID: 4394285280528788368, guid: cf675e5fc709745bb8e488bc0a7b9091, type: 3}
       propertyPath: m_Name
       value: Diamond (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6929566238879267730, guid: cf675e5fc709745bb8e488bc0a7b9091, type: 3}
+      propertyPath: instructions
+      value: 
+      objectReference: {fileID: 4900000, guid: 913f981c758a9fc49b066eaa1b25223d, type: 3}
+    - target: {fileID: 6929566238879267730, guid: cf675e5fc709745bb8e488bc0a7b9091, type: 3}
+      propertyPath: disappearTime
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf675e5fc709745bb8e488bc0a7b9091, type: 3}
@@ -6971,7 +6987,7 @@ MonoBehaviour:
   transformToFollow: {fileID: 661752328}
   contentText: {fileID: 699524188}
   textTypingSpeed: 0.05
-  delayBetweenTextChange: 1
+  delayBetweenTextChange: 0.7
   delayBeforeClosing: 3
 --- !u!1001 &1922425144
 PrefabInstance:
@@ -7517,6 +7533,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Diamond (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6929566238879267730, guid: cf675e5fc709745bb8e488bc0a7b9091, type: 3}
+      propertyPath: instructions
+      value: 
+      objectReference: {fileID: 4900000, guid: 913f981c758a9fc49b066eaa1b25223d, type: 3}
+    - target: {fileID: 6929566238879267730, guid: cf675e5fc709745bb8e488bc0a7b9091, type: 3}
+      propertyPath: disappearTime
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf675e5fc709745bb8e488bc0a7b9091, type: 3}
 --- !u!4 &2077111904 stripped
@@ -7715,7 +7739,7 @@ PrefabInstance:
       objectReference: {fileID: 1436096356}
     - target: {fileID: 7796096218260833682, guid: eeef6836f0d234a57805ecd5143e6c67, type: 3}
       propertyPath: m_Name
-      value: CM 3rdPerson Intro
+      value: CM 3rdPerson Speech
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eeef6836f0d234a57805ecd5143e6c67, type: 3}

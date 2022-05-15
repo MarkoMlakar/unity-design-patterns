@@ -5044,4 +5044,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 10
-  disappearTime: 0.35
+  disappearTime: 0.25
+  instructions: {fileID: 4900000, guid: 913f981c758a9fc49b066eaa1b25223d, type: 3}

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Managers;
 using TMPro;
 using UnityEngine;
 
@@ -7,7 +8,8 @@ namespace UI
 {
     public class SpeechBubbleUI : MonoBehaviour
     {
-        public static event Action OnSpeechBubbleEnd;
+        public static event Action OnSpeechBubbleClose;
+        public static event Action OnSpeechBubbleOpen;
         [SerializeField] private GameObject speechBubble;
         [SerializeField] private Transform transformToFollow;
         [SerializeField] private TMP_Text contentText;
@@ -27,8 +29,10 @@ namespace UI
         public void ToggleSpeechCanvas(bool toggle)
         {
             speechBubble.SetActive(toggle);
-            if (toggle)
-                StartCoroutine(SpeechTyper());
+            if (!toggle) return;
+            
+            OnSpeechBubbleOpen?.Invoke();
+            StartCoroutine(SpeechTyper());
         }
 
         private IEnumerator SpeechTyper()
@@ -39,20 +43,22 @@ namespace UI
                 // Pagination
                 if (currentText[i] == '|')
                 {
-                    yield return new WaitForSeconds(delayBetweenTextChange);
+                    yield return new WaitForSecondsRealtime(delayBetweenTextChange);
                     contentText.text = "";
                     continue;
                 }
                 contentText.text += currentText[i];
-                yield return new WaitForSeconds(textTypingSpeed);
+                yield return new WaitForSecondsRealtime(textTypingSpeed);
             }
             
             // Hide bubble at the end
-            yield return new WaitForSeconds(delayBeforeClosing);
+            yield return new WaitForSecondsRealtime(delayBeforeClosing);
             ToggleSpeechCanvas(false);
             
             // Fire event that speech bubble is closed
-            OnSpeechBubbleEnd?.Invoke();
+            OnSpeechBubbleClose?.Invoke();
+            GameManager.Instance.ResumeTime();
+
         }
         private void Start()
         {

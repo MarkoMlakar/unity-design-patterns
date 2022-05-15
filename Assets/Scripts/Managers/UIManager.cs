@@ -6,13 +6,24 @@ namespace Managers
     public class UIManager : Singleton<UIManager>
     { 
         [SerializeField] private SpeechBubbleUI speechBubbleUI;
-        [SerializeField] private TextAsset bubbleText;
-        
-        
 
-        public void ShowSpeechBubbleUI()
+        private void OnEnable()
         {
-            speechBubbleUI.SetData(bubbleText.text).ToggleSpeechCanvas(true);
+            Collectible.OnInstructions += text =>
+            {
+                ShowSpeechBubbleUI(text);
+                GameManager.Instance.FreezeTime();
+            };
+        }
+        
+        private void OnDisable()
+        {
+            Collectible.OnInstructions -= ShowSpeechBubbleUI;
+        }
+
+        public void ShowSpeechBubbleUI(string text)
+        {
+            speechBubbleUI.SetData(text).ToggleSpeechCanvas(true);
         }
     }
 }

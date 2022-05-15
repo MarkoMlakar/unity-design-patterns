@@ -7,11 +7,11 @@ namespace UI
     public class ScoreUI: MonoBehaviour
     {
         [SerializeField] private TMP_Text scoreText;
-        private int score { get; set; }
+        private int Score { get; set; }
 
         private void Start()
         {
-            scoreText.text = score.ToString();
+            scoreText.text = Score.ToString();
         }
 
         private void OnEnable()
@@ -25,8 +25,8 @@ namespace UI
         }
         private void OnCollectible(int amount)
         {
-            score += amount;
-            scoreText.text = score.ToString();
+            Score += amount;
+            scoreText.text = Score.ToString();
         }
     }
 }

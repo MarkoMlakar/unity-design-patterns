@@ -5,7 +5,7 @@ using UI;
 
 public class CameraManager : Singleton<CameraManager>
 {
-    [SerializeField] private CinemachineVirtualCamera introVCam;
+    [SerializeField] private CinemachineVirtualCamera speechVCam;
     [SerializeField] private CinemachineVirtualCamera normalVCam;
     [SerializeField] private CinemachineVirtualCamera aimVCam;
     public void EnableAimCam()
@@ -19,25 +19,22 @@ public class CameraManager : Singleton<CameraManager>
         aimVCam.enabled = false;
         aimVCam.Priority -= 10;
     }
-    private void Start()
-    {
-        EnableIntroCam();
-    }
-
     private void OnEnable()
     {
-        SpeechBubbleUI.OnSpeechBubbleEnd += EnableNormalCam;
+        SpeechBubbleUI.OnSpeechBubbleClose += EnableNormalCam;
+        SpeechBubbleUI.OnSpeechBubbleOpen += EnableSpeechVCam;
     }
 
     private void OnDisable()
     {
-        SpeechBubbleUI.OnSpeechBubbleEnd -= EnableNormalCam;
+        SpeechBubbleUI.OnSpeechBubbleClose -= EnableNormalCam;
+        SpeechBubbleUI.OnSpeechBubbleOpen -= EnableSpeechVCam;
 
     }
 
-    private void EnableIntroCam()
+    private void EnableSpeechVCam()
     {
-        introVCam.enabled = true;
+        speechVCam.enabled = true;
     }
     
     private void EnableNormalCam()

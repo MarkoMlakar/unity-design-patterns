@@ -7,12 +7,12 @@ public class AudioManager : Singleton<AudioManager>
     
     private void OnEnable()
     {
-        Collectible.OnSoundEffect += PlayCollisionSound;
+        Collectible.OnCollision += PlayCollisionSound;
     }
 
     private void OnDisable()
     {
-        Collectible.OnSoundEffect -= PlayCollisionSound;
+        Collectible.OnCollision -= PlayCollisionSound;
     }
 
     private void PlayCollisionSound()

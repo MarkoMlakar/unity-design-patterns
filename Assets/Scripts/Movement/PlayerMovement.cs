@@ -1,4 +1,5 @@
 using System;
+using Managers;
 using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -57,17 +58,26 @@ namespace Movement
 
         private void OnEnable()
         {
-            SpeechBubbleUI.OnSpeechBubbleEnd += EnableInput;
+            SpeechBubbleUI.OnSpeechBubbleClose += EnableInput;
+            SpeechBubbleUI.OnSpeechBubbleOpen += DisableInput;
+            
         }
 
         private void OnDisable()
         {
-            SpeechBubbleUI.OnSpeechBubbleEnd -= EnableInput;
+            SpeechBubbleUI.OnSpeechBubbleClose -= EnableInput;
+            SpeechBubbleUI.OnSpeechBubbleOpen -= DisableInput;
+
         }
         
         private void EnableInput()
         {
             playerInput.ActivateInput();
+        }
+
+        private void DisableInput()
+        {
+            playerInput.DeactivateInput();
         }
 
         private void Update()
