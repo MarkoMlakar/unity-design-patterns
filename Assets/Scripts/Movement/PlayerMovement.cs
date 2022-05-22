@@ -1,5 +1,3 @@
-using System;
-using Managers;
 using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,7 +12,7 @@ namespace Movement
         
         [Header("Controllers")]
         [SerializeField] private CharacterController characterController;
-        
+
         [Header("Input controls")]
         [SerializeField] private PlayerInput playerInput;
         
@@ -60,7 +58,6 @@ namespace Movement
         {
             SpeechBubbleUI.OnSpeechBubbleClose += EnableInput;
             SpeechBubbleUI.OnSpeechBubbleOpen += DisableInput;
-            
         }
 
         private void OnDisable()

@@ -1,0 +1,1 @@
+Step on one of the three boxes.|Example of the state pattern

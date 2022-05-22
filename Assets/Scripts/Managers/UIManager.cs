@@ -1,5 +1,7 @@
+using Observer_Pattern;
 using UI;
 using UnityEngine;
+using Utils;
 
 namespace Managers
 {
@@ -14,11 +16,17 @@ namespace Managers
                 ShowSpeechBubbleUI(text);
                 GameManager.Instance.FreezeTime();
             };
+            StageController.OnInstructions += text =>
+            {
+                ShowSpeechBubbleUI(text);
+                GameManager.Instance.FreezeTime();
+            };
         }
         
         private void OnDisable()
         {
             Collectible.OnInstructions -= ShowSpeechBubbleUI;
+            StageController.OnInstructions -= ShowSpeechBubbleUI;
         }
 
         public void ShowSpeechBubbleUI(string text)

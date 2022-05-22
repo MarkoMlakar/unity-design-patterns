@@ -1,7 +1,7 @@
 ﻿namespace State_Pattern
 {
-    public class NPCBaseState
+    public abstract class NPCBaseState
     {
-        
+        public abstract void EnterState(NPCStateManager npcStateManager,DanceType type);
     }
 }

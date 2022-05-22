@@ -2,6 +2,9 @@
 {
     public enum DanceType
     {
-        
+        BreakDance,
+        ChickenDance,
+        Sexy,
+        Idle
     }
 }
