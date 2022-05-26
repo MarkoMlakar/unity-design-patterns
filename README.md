@@ -14,3 +14,4 @@ Sandbox project to test out the programming patterns that I find usefull in game
 - Composite Pattern
 - MVC (Model-View-Controller)
 - MVP(Model-View-Presenter)
+- S.O.L.I.D. principles 
