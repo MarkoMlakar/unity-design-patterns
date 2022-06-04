@@ -21,15 +21,16 @@ namespace Observer_Pattern
 
         private void OnTriggerEnter(Collider other)
         {
+            if (!other.CompareTag("Player")) return;
             OnInteract?.Invoke(type);
             renderer.material = selectedMaterial;
         }
 
         private void OnTriggerExit(Collider other)
         {
+            if (!other.CompareTag("Player")) return;
             NotInteract?.Invoke();
             renderer.material = defaultMaterial;
-
         }
     }
 }

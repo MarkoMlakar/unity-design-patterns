@@ -13,6 +13,7 @@ namespace Utils
         private int numberOfVisits;
         private void OnTriggerEnter(Collider other)
         {
+            if (!other.CompareTag("Player")) return;
             numberOfVisits++;
             if(numberOfVisits == 1)
                 OnInstructions?.Invoke(instructions.text);
