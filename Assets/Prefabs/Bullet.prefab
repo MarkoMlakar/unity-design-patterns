@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 586683095338016522}
   - component: {fileID: 4175436138183370475}
   - component: {fileID: 4890741828444225390}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,6 +31,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0.5225732, z: 0, w: 0.8525945}
   m_LocalPosition: {x: 0, y: 0.136, z: 0}
   m_LocalScale: {x: 0.04757404, y: 0.04790067, z: 0.04666553}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -54,6 +55,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -126,4 +128,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 4175436138183370475}
-  destructionTime: 2
+  destructionTime: 0.45
+  bulletSound: {fileID: 8300000, guid: 7b77c7bf8813eb747a80d95faaead4ef, type: 3}

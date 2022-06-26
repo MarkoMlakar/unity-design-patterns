@@ -1,3 +1,4 @@
+using Object_Pooling_Pattern;
 using Observer_Pattern;
 using UI;
 using UnityEngine;
@@ -17,6 +18,12 @@ namespace Managers
                 GameManager.Instance.FreezeTime();
             };
             StageController.OnInstructions += text =>
+            {
+                ShowSpeechBubbleUI(text);
+                GameManager.Instance.FreezeTime();
+            };
+
+            BulletSpawner.OnFirstShoot += text =>
             {
                 ShowSpeechBubbleUI(text);
                 GameManager.Instance.FreezeTime();

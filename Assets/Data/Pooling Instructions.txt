@@ -1,0 +1,1 @@
+﻿The shooting of the bullets is implemented|with the use of the|Unity 2021+ built-in Object Pool Class

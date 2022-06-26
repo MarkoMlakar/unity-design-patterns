@@ -26,6 +26,11 @@ public class AudioManager : Singleton<AudioManager>
         audioSource.PlayOneShot(diamondClip);
     }
 
+    public void PlayClip(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
+    }
+
     public void ChangeStageMusic(DanceType type)
     {
         audioSource.volume = 0.2f;
