@@ -8,7 +8,7 @@ Sandbox project to test out the programming patterns that I find usefull in game
 - Observer pattern :white_check_mark:
 - Singleton pattern :white_check_mark:
 - State pattern :white_check_mark:
-- Object pooling 
+- Object pooling :white_check_mark:
 - Strategy Pattern
 - Decorator Pattern
 - Composite Pattern
