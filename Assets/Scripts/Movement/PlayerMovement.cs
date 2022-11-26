@@ -19,7 +19,7 @@ namespace Movement
         [Header("Movement Variables")] 
         [SerializeField] private float movementSpeed = 2f;
         [SerializeField] private float rotationSpeed = 5f;
-        [SerializeField] private float jumpHeight = 2.5f;
+        public float JumpHeight = 2.5f;
         
         [Header("Ground Check")]
         [SerializeField] private float gravityValue = -9.81f;
@@ -110,7 +110,7 @@ namespace Movement
             // Jump
             if (jumpAction.triggered && isGroundedPlayer)
             {
-                playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+                playerVelocity.y += Mathf.Sqrt(JumpHeight * -3.0f * gravityValue);
             }
             
             playerVelocity.y += gravityValue * Time.deltaTime;
