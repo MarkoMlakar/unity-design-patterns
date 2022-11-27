@@ -10,8 +10,8 @@ Sandbox project to test out the programming patterns that I find usefull in game
 - State pattern :white_check_mark:
 - Object pooling :white_check_mark:
 - Strategy Pattern :white_check_mark:
-- Decorator Pattern
+- Decorator Pattern :white_check_mark:
 - Composite Pattern
 - MVC (Model-View-Controller)
 - MVP(Model-View-Presenter)
-- S.O.L.I.D. principles 
+- S.O.L.I.D. principles
