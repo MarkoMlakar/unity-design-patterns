@@ -1,3 +1,4 @@
+using Decorator_Pattern;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -43,11 +44,12 @@ namespace Strategy_Pattern
         private void UseSuperJumpAbility(GameObject go, bool isOn)
         {
             _isSuperJumpAbilityOn = isOn;
-            superJumpAbility ??= new SuperJumpAbility();
+            superJumpAbility ??= new DelayedDecorator(new SuperJumpAbility()); // Decorator pattern
             if(isOn)
                 superJumpAbility.Use(go);
             else
                 superJumpAbility.Reverse(go);
+                
             
         }
 

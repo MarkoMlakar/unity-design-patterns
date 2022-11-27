@@ -4290,6 +4290,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4622981333497442, guid: dd3ee0c97aab8a7498c9292f3482f60b, type: 3}
   m_PrefabInstance: {fileID: 1049977517}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1050789948 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 904394026929181191, guid: a7182db4fc706467985051a5bdc2106b, type: 3}
+  m_PrefabInstance: {fileID: 904394025744814958}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1064117258
 GameObject:
   m_ObjectHideFlags: 0
@@ -4979,7 +4984,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 904394026929149090, guid: a7182db4fc706467985051a5bdc2106b, type: 3}
   m_PrefabInstance: {fileID: 904394025744814958}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1050789948}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
@@ -6415,6 +6420,7 @@ MonoBehaviour:
   breakDanceClip: {fileID: 8300000, guid: 494a04619d646bf469650aea9f88c257, type: 3}
   chickenDanceClip: {fileID: 8300000, guid: da6a21728b6269940a37bd34b1dfd175, type: 3}
   sexyDanceClip: {fileID: 8300000, guid: ef75e585d08eed649b766dde401f67b5, type: 3}
+  superJumpActivationClip: {fileID: 8300000, guid: c1c0783915ad27a4ba8d71c98fb2d303, type: 3}
 --- !u!82 &1499012236
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6758,12 +6764,25 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1653978398, guid: a7182db4fc706467985051a5bdc2106b, type: 3}
   m_PrefabInstance: {fileID: 904394025744814958}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1050789948}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35237404084345bfba5b4a534ac8d951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1653978405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050789948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a33a2bb58da0e409922735f2ccf293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseMaterial: {fileID: 2100000, guid: 844352d5b3af75541933f2e45dd2d57d, type: 2}
 --- !u!1001 &1669333055
 PrefabInstance:
   m_ObjectHideFlags: 0
